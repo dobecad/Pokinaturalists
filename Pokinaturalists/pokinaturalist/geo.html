@@ -4,13 +4,12 @@
 
 <p>Displays user location if location sharing is enabled.</p>
 
-
+<button onclick="getLocation()">Try It</button>
 
 <p id="location"></p>
 
 <script>
 var x = document.getElementById("location");
-getLocation()
 
 function getLocation() {
   if (navigator.geolocation) {
@@ -25,3 +24,6 @@ function showPosition(position) {
   "<br>Longitude: " + position.coords.longitude;
 }
 </script>
+
+</body>
+</html>
