@@ -14,7 +14,10 @@ Pokinaturalist is currently able to extract user IP address when they connect to
 ```bash
 cd Pokinaturalists/Pokinaturalists/
 pip -r requirements.txt
+pip install django-allauth
 ```
+# Login
+as of right now, I am (pretty) sure that the user can login using Google. Simply press the "sign out" button twice, then click "sign in", then click the "Google" hyperlink, you will then be prompted with a "hello {insert name here}!". NOTE: it took some allauth database management to get the google Oauth to work. I will take the time this weekend to move it over to Heroku so that it actually works for people not on my local machine. 
 
 # Deployment
 ### Ensure all environment variables are set on the Heroku Deployment page. Such variables will include:
