@@ -1,5 +1,6 @@
 from django.db import models
 
+#might make some of these not null requirements just as a protection
 
 # Create your models here.
 class User(models.Model):
