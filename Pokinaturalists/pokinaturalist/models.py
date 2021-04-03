@@ -7,21 +7,33 @@ class User(models.Model):
     username = models.CharField(max_length=20, unique=True)
     points = models.IntegerField()
 
+    class Meta:
+        app_label = "User"
+
 
 class Move(models.Model):
-    move_name = models.CharField(max_length=20)
+    move_name = models.CharField(max_length=20, unique=True)
     move_strength = models.IntegerField()
+
+    class Meta:
+        app_label = "Move"
 
 
 class Creature(models.Model):
-    owner_id = models.ForeignKey(User, on_delete=CASCADE)
+    owner_id = models.ForeignKey(User, on_delete=models.CASCADE)
     nickname = models.CharField(max_length=50)
     # link to the base observation(url?) Can derive picture from that
     observation_base = models.CharField(max_length=200)
     strength = models.IntegerField()
-    moveset = models.ManyToManyRel(Move)
+    moveset = models.ManyToManyField(Move)
+
+    class Meta:
+        app_label = "Creature"
 
 
 class Item(models.Model):
     item_type = models.IntegerField()
     item_strength = models.IntegerField()
+
+    class Meta:
+        app_label = "Item"
