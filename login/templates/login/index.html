@@ -3,7 +3,6 @@
 <html>
   <head>
     <title>Google Registration</title>
-      <meta name = "google-signin-client-id" content = "140776733454-vtsnlnu3msaaq2d0divdamdn2in6j1l7.apps.googleusercontent.com">
   </head>
   <body>
     <div id ="anim"></div>
@@ -28,7 +27,7 @@
 
         <script>
             function myFunction() {
-                location.href = 'http://127.0.0.1:8000/accounts/google/login/callback';
+                location.href = 'http://127.0.0.1:8000/accounts/logout';
             }
         </script>
     {% if user.is_authenticated %}
@@ -38,7 +37,13 @@
     {% else %}
     <h1>My Google Login Project</h1>
 
-   <a href="{% provider_login_url 'google' %}">Login with Google</a>
+   <button onclick="myFunction()">Sign in</button>
+
+        <script>
+            function myFunction() {
+                location.href = 'http://127.0.0.1:8000/accounts/login';
+            }
+        </script>
     {% endif %}
 
   </body>
