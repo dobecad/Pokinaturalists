@@ -21,20 +21,21 @@
 
     <header class="welcome-banner">
     <h1>Pokinaturalist
-    <button onclick="myFunction()">Sign Out</button>
+
+    {% if user.is_authenticated %}
+
+   <span id="span1">Welcome, {{ user.username }} !</span>
+        <button class="myButton" onclick="myFunction()">Sign Out</button>
         <script>
             function myFunction() {
                 location.href = 'http://127.0.0.1:8000/accounts/logout';
             }
         </script>
-    {% if user.is_authenticated %}
-
-   <span id="span1">Welcome, {{ user.username }} !</span>
 
     {% else %}
     <span id="span1">Please Login</span>
 
-   <button onclick="myFunction()">Sign in</button>
+   <button class="myButton" onclick="myFunction()">Sign in</button>
         <script>
             function myFunction() {
                 location.href = 'http://127.0.0.1:8000/accounts/login';
