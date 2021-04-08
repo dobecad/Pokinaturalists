@@ -2,22 +2,26 @@
 {% load static %}
 <html>
   <head>
-    <title>Google Registration</title>
+    <title>Pokinaturalist</title>
+      <link rel="stylesheet" href="{% static 'login/index.css' %}">
   </head>
-  <body>
-    <div id ="anim"></div>
-    <script src = "{% static 'login/lottie.js' %}"></script>
-    <script src = "{% static 'login/script.js' %}"></script>
-  </body>
-
+  <video poster="{% static 'images/img_3w.png' %}" autoplay playsinline muted loop id="back">
+        <source src="{% static 'images/worldSpin.webm' %}" type="video/webm">
+  </video>
 
 
 <div id = "welcome">
     <body>
 
-    <h1>My Google Login Project</h1>
-    <button onclick="myFunction()">Sign Out</button>
+        <body>
+        <div id ="anim"></div>
+            <script src = "{% static 'login/lottie.js' %}"></script>
+            <script src = "{% static 'login/script.js' %}"></script>
+        </body>
 
+    <header class="welcome-banner">
+    <h1>Pokinaturalist
+    <button onclick="myFunction()">Sign Out</button>
         <script>
             function myFunction() {
                 location.href = 'http://127.0.0.1:8000/accounts/logout';
@@ -25,13 +29,12 @@
         </script>
     {% if user.is_authenticated %}
 
-   <p>Welcome, {{ user.username }} !</p>
+   <span id="span1">Welcome, {{ user.username }} !</span>
 
     {% else %}
-    <h1>My Google Login Project</h1>
+    <span id="span1">Please Login</span>
 
    <button onclick="myFunction()">Sign in</button>
-
         <script>
             function myFunction() {
                 location.href = 'http://127.0.0.1:8000/accounts/login';
@@ -39,6 +42,9 @@
         </script>
     {% endif %}
 
-  </body>
+    </body>
+    </h1>
+    </header>
 </div>
+
 </html>
