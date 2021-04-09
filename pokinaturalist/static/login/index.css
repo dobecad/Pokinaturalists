@@ -33,6 +33,11 @@ h1 #span1 {
     letter-spacing: .6vw;
   }
 
+h1 #span2 {
+    display: block;
+    font-size: 3vw;
+    letter-spacing: .3vw;
+  }
 .myButton {
     box-shadow:inset 0px -3px 7px 0px #29bbff;
     background:linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
