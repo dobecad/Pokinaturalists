@@ -25,10 +25,17 @@
     {% if user.is_authenticated %}
 
    <span id="span1">Welcome, {{ user.username }} !</span>
-        <button class="myButton" onclick="myFunction()">Sign Out</button>
+        <form method="post" action="{% url 'account_logout' %}">
+            {% csrf_token %}
+            {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+            {% endif %}
+            <button class="myButton" type="submit">sign out</button>
+        </form>
+        <button class="myButton" onclick="myFunction()">Continue</button>
         <script>
             function myFunction() {
-                location.href = 'http://127.0.0.1:8000/accounts/logout';
+                location.href = 'http://127.0.0.1:8000/pokinatrualist/home';
             }
         </script>
 
