@@ -6,19 +6,22 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'login/index.css' %}">
+    <link rel="stylesheet" href="{% static 'login/signup.css' %}">
 
     <video poster="{% static 'images/img_3w.png' %}" autoplay playsinline muted loop id="back">
         <source src="{% static 'images/worldSpin.webm' %}" type="video/webm">
     </video>
 
-    <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        {% if redirect_field_value %}
-        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-        {% endif %}
-        <button class="myButton" type="submit">Sign up &raquo;</button>
-    </form>
+
+        <form style="text-align:center" class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+            <button class="myButton" type="submit">Sign up &raquo;</button>
+
+        </form>
+
 
 </html>
