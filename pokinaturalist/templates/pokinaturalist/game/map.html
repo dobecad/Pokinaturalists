@@ -4,35 +4,16 @@ This file will display a sample map to the center of the screen.
 Later this file will be used with a variable map that changes as the user moves.
 -->
 
+{% extends "pokinaturalist/base.html" %}
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
+{% block title %}Pokinaturalist{% endblock %}
 
-.container {
-  position: relative;
-  text-align: center;
-  color: white;
-}
-
-
-.centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-</style>
-</head>
-<body>
-
+{% block content %}
 
 <div class="container">
   <img src="https://www.google.com/maps/d/thumbnail?mid=1pX4qfuilVhhLxQuuYI_O1KFhXoc&hl=en" style="width:100%;">
  
 </div>
 
-</body>
-</html> 
+{% endblock %}
+
