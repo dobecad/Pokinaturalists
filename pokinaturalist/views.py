@@ -11,7 +11,11 @@ def index(request):
         raise exceptions.FieldDoesNotExist("Client IP address is missing from request.")
 
     request.session["IPv4_ADDR"] = client_ip
-    return HttpResponse(f"Client IP addr: {client_ip}")
+    
+    context = {}
+    template_base_dir = 'pokinaturalist/game'
+    template_to_return = f'{template_base_dir}/geo.html'
+    return render(request, f'{template_to_return}', context)
 
 
 def get_user_ip_addr(request):
