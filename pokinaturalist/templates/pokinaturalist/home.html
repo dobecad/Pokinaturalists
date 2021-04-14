@@ -1,12 +1,57 @@
-{% load socialaccount %}
-{% load static %}
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>Pokinaturalist</title>
-      <link rel="stylesheet" href="{% static 'login/index.css' %}">
-  </head>
-  <video poster="{% static 'images/img_3w.png' %}" autoplay playsinline muted loop id="back">
-        <source src="{% static 'images/worldSpin.webm' %}" type="video/webm">
-  </video>
-<h1>YESSIR</h1>
-</html>
+<head>
+<!-- Sets up mapbox ref -->
+<meta charset="utf-8">
+<title>Display a map on a webpage</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
+
+<style>
+body { margin: 0; padding: 0; }
+/* sets up map to show on entire page */
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+/*sets up center for Show Map button*/
+#center {width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;}
+
+</style>
+</head>
+<body>
+<div id=map>
+    <div id = "center">
+        <button onclick="checkGeoLocation()">Show Map</button>
+    </div>    
+</div>
+<script>
+
+//checks that user supports geolocation software. If so - runs showPosition function
+function checkGeoLocation(){
+if(navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(showPosition); //gets users position 
+}
+else{
+    console.error("GeoLocation Not Supported"); //throws error in case geolocation not supported
+}
+}
+
+//Finds user position if location sharing is on, and displays map on screen
+function showPosition(position){
+mapboxgl.accessToken = 'pk.eyJ1Ijoiamxlcm5lMSIsImEiOiJja215YmN1MDYwMmJoMnJxd29tenBvemRrIn0.2O58ULBCvmcTYgv3HMi9Yw';
+var map = new mapboxgl.Map({
+container: 'map', // container id
+style: 'mapbox://styles/mapbox/streets-v11', // style URL
+center: [position.coords.longitude, position.coords.latitude], // starting position [lng, lat]
+zoom: 14 // starting zoom
+});
+
+//Creates marker for where user is
+var marker = new mapboxgl.Marker({color: "FF0000"})
+.setLngLat([position.coords.longitude, position.coords.latitude])
+.addTo(map);
+
+}
+
+</script>
+ 
+</body>
