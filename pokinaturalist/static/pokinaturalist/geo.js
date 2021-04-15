@@ -2,11 +2,13 @@
 
 var map;
 var userMarker;
-var waitInSeconds = 15;
-var waitInMilliseconds = waitInSeconds * 1000;
+var userIcon;
 var mapboxAccessToken;
 var watchId;
 var zoomLevel = 18;
+var maxAge = 25000;
+var timeUntilTimeout = 20000;
+var trainerImg = "/static/pokinaturalist/img/trainer.png";
 
 function getLocation(token) {
     if (navigator.geolocation) {
@@ -44,7 +46,13 @@ function showPosition(position) {
     }).addTo(map);
 
     // Add a marker to the map which identifies user's location
-    userMarker = L.marker(latlng).addTo(map);
+    userIcon = L.icon({
+        iconUrl: trainerImg,
+        iconSize: [45, 50],
+        iconAnchor: [25, 50],
+        popupAnchor: [-25, -50]
+    });
+    userMarker = L.marker(latlng, {icon: userIcon}).addTo(map);
 
     // Disable user from changing zoom
     map.touchZoom.disable();
@@ -61,8 +69,8 @@ function trackUserLocation() {
     // Set up geolocation tracking
     const options = {
         enableHighAccuracy: false,
-        maximumAge: 25000,
-        timeout: 20000
+        maximumAge: maxAge,
+        timeout: timeUntilTimeout
     };
     console.log("Starting watchPosition.");
     watchId = navigator.geolocation.watchPosition(success, error, options);
