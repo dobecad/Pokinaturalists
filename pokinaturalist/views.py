@@ -4,6 +4,10 @@ from django.core import exceptions
 
 from ipware import get_client_ip
 
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
 # Create your views here.
 def index(request):
     client_ip = get_user_ip_addr(request)
@@ -12,7 +16,9 @@ def index(request):
 
     request.session["IPv4_ADDR"] = client_ip
     
-    context = {}
+    context = {
+        "mapboxAppToken": str(os.getenv('MapboxAppToken'))
+    }
     template_base_dir = 'pokinaturalist/game'
     template_to_return = f'{template_base_dir}/geo.html'
     return render(request, f'{template_to_return}', context)
