@@ -4,12 +4,13 @@ var map;
 var userMarker;
 var waitInSeconds = 15;
 var waitInMilliseconds = waitInSeconds * 1000;
-var mapboxAccessToken = '';
+var mapboxAccessToken;
 var watchId;
 var zoomLevel = 18;
 
-function getLocation() {
+function getLocation(token) {
     if (navigator.geolocation) {
+        mapboxAccessToken = token;
         navigator.geolocation.getCurrentPosition(showPosition);
     } else { 
         alert("Geolocation is not supported by this browser.");
@@ -34,7 +35,7 @@ function showPosition(position) {
     // Be aware that the tiles will be queried from MapBox several times when the user first loads the page
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
         maxZoom: zoomLevel,
-        id: 'mapbox/streets-v11',
+        id: 'mapbox/outdoors-v11',
         tileSize: 512,
         zoomOffset: -1,
         reuseTiles: true,
