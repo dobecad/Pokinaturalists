@@ -14,7 +14,7 @@ def index(request):
     if client_ip is None:
         raise exceptions.FieldDoesNotExist("Client IP address is missing from request.")
 
-    request.session["IPv4_ADDR"] = client_ip
+    # request.session["IPv4_ADDR"] = client_ip
     context = {
         "mapboxAppToken": str(os.getenv('MapboxAppToken'))
     }
