@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'pokinaturalist.apps.PokinaturalistConfig',
 ]
 
 MIDDLEWARE = [
@@ -76,6 +77,21 @@ WSGI_APPLICATION = 'Pokinaturalists.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+# postgres://gsykhxqtjrgnsy:cf8d31d489ebc7b913477090a9ce675746c18812626e2192202280dc44f27f16@ec2-34-233-0-64.compute-1.amazonaws.com:5432/dbec8gk9ufgb6q
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'dbec8gk9ufgb6q',
+#         'USER': 'gsykhxqtjrgnsy',
+#         'PASSWORD': 'cf8d31d489ebc7b913477090a9ce675746c18812626e2192202280dc44f27f16',
+#         'HOST': 'ec2-34-233-0-64.compute-1.amazonaws.com',
+#         'PORT': '5432',
+#     }
+# }
+
+
+#Commenting this out incase people want to run the database locally.
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
