@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'Pokinaturalists.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# postgres://gsykhxqtjrgnsy:cf8d31d489ebc7b913477090a9ce675746c18812626e2192202280dc44f27f16@ec2-34-233-0-64.compute-1.amazonaws.com:5432/dbec8gk9ufgb6q
+
 
 # DATABASES = {
 #     'default': {
