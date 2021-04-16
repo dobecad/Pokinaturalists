@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.core import exceptions
-from django.views.generic import TemplateView
 
 from ipware import get_client_ip
 
@@ -27,6 +26,3 @@ def index(request):
 def get_user_ip_addr(request):
     client_ip, _ = get_client_ip(request)
     return client_ip
-
-class HomePageView(TemplateView):
-    template_name = 'pokinaturalist/home.html'
