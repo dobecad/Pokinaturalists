@@ -81,12 +81,12 @@ WSGI_APPLICATION = 'Pokinaturalists.wsgi.application'
 
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'dbec8gk9ufgb6q',
-#         'USER': 'gsykhxqtjrgnsy',
-#         'PASSWORD': 'cf8d31d489ebc7b913477090a9ce675746c18812626e2192202280dc44f27f16',
-#         'HOST': 'ec2-34-233-0-64.compute-1.amazonaws.com',
-#         'PORT': '5432',
+#         'ENGINE': str(os.getenv('DB_ENGINE')),
+#         'NAME': str(os.getenv('DB_NAME')),
+#         'USER': str(os.getenv('DB_USER')),
+#         'PASSWORD': str(os.getenv('DB_PASS')),
+#         'HOST': str(os.getenv('DB_HOST')),
+#         'PORT': str(os.getenv('DB_PORT')),
 #     }
 # }
 
