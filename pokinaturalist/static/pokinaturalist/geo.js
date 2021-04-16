@@ -28,7 +28,7 @@ function showPosition(position) {
         center: latlng,
         dragging: false,
         zoomControl: false
-    }).setView([0, 0], 0);
+    }).fitWorld();
 
     // Play animation that zooms in on user's location
     map.flyTo(latlng, zoomLevel);
