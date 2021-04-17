@@ -16,10 +16,12 @@ function getLocation(token) {
         $(document).ready(navigator.geolocation.getCurrentPosition(showPosition));
     } else { 
         alert("Geolocation is not supported by this browser.");
+        console.log("Geolocation not enabled on device.");
     }
 }
 
 function showPosition(position) {
+    console.log("Loading map");
     // Get user coordinates after user accepts
     var latlng = L.latLng(position.coords.latitude, position.coords.longitude);
 
@@ -29,6 +31,7 @@ function showPosition(position) {
         dragging: false,
         zoomControl: false
     }).fitWorld();
+    console.log("Generated map.");
 
     // Play animation that zooms in on user's location
     map.flyTo(latlng, zoomLevel);
@@ -61,6 +64,7 @@ function showPosition(position) {
     map.boxZoom.disable();
     map.keyboard.disable();
 
+    console.log("Finished loading map.");
     // After zoom animation is finished, begin continuosly tracking user device location
     map.on('zoomend', trackUserLocation);
 }
