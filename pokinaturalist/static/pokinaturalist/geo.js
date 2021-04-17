@@ -14,7 +14,7 @@ function getLocation(token) {
     if (navigator.geolocation) {
         console.log("In getLocation");
         mapboxAccessToken = token;
-        $(document).ready(navigator.geolocation.getCurrentPosition(showPosition));
+        $(document).ready(navigator.geolocation.getCurrentPosition(showPosition, error));
     } else { 
         alert("Geolocation is not supported by this browser.");
         console.log("Geolocation not enabled on device.");
