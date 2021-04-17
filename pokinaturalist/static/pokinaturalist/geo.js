@@ -97,5 +97,5 @@ function success(position) {
 
 function error(error) {
     console.log("Failed to update user location.");
-    console.log("Error: ", error);
+    console.log("Error: ", error.code);
 }
