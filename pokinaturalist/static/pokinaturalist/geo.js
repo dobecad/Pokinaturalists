@@ -13,7 +13,7 @@ var trainerImg = "/static/pokinaturalist/img/trainer.png";
 function getLocation(token) {
     if (navigator.geolocation) {
         mapboxAccessToken = token;
-        navigator.geolocation.getCurrentPosition(showPosition);
+        $(document).ready(navigator.geolocation.getCurrentPosition(showPosition));
     } else { 
         alert("Geolocation is not supported by this browser.");
     }
