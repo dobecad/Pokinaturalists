@@ -90,6 +90,17 @@ WSGI_APPLICATION = 'Pokinaturalists.wsgi.application'
 #     }
 # }
 
+# Here's a copy of the databases so that you can test on your own machine
+# DATABASES = {
+#     'default': {
+#         'ENGINE': str(os.getenv('DB_ENGINE')),
+#         'NAME': str(os.getenv('DB_NAME')),
+#         'USER': str(os.getenv('DB_USER')),
+#         'PASSWORD': str(os.getenv('DB_PASS')),
+#         'HOST': str(os.getenv('DB_HOST')),
+#         'PORT': str(os.getenv('DB_PORT')),
+#     }
+# }
 
 #Commenting this out incase people want to run the database locally.
 DATABASES = {
