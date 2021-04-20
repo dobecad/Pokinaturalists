@@ -79,10 +79,22 @@ WSGI_APPLICATION = 'Pokinaturalists.wsgi.application'
 
 
 
+DATABASES = {
+    'default': {
+        'ENGINE': str(os.getenv('DB_ENGINE')),
+        'NAME': str(os.getenv('DB_NAME')),
+        'USER': str(os.getenv('DB_USER')),
+        'PASSWORD': str(os.getenv('DB_PASS')),
+        'HOST': str(os.getenv('DB_HOST')),
+        'PORT': str(os.getenv('DB_PORT')),
+    }
+}
+
+# Here's a copy of the databases so that you can test on your own machine
 # DATABASES = {
 #     'default': {
 #         'ENGINE': str(os.getenv('DB_ENGINE')),
-#         'NAME': str(os.getenv('DB_NAME')),
+#         'NAME': str(os.getenv('LOCAL_DB_NAME')),
 #         'USER': str(os.getenv('DB_USER')),
 #         'PASSWORD': str(os.getenv('DB_PASS')),
 #         'HOST': str(os.getenv('DB_HOST')),
@@ -90,14 +102,13 @@ WSGI_APPLICATION = 'Pokinaturalists.wsgi.application'
 #     }
 # }
 
-
 #Commenting this out incase people want to run the database locally.
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation
