@@ -1,15 +1,16 @@
 #parent {
     position: relative;
-    text-align: center;
+    width: 100%;
 }
 
 #map { 
-    height: 98vh;
+    height: 94vh;
 }
 
-.centered {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.nav>a:focus, .nav>a:hover {
+    background-color: rgb(138, 240, 201);
+}
+
+.nav>a {
+    font-size: 1.6em;
 }
