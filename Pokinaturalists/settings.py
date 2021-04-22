@@ -126,7 +126,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-SITE_ID = 4
+SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 
 # Static files (CSS, JavaScript, Images)
@@ -136,7 +136,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
-SITE_ID = 4
+SITE_ID = 1
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
