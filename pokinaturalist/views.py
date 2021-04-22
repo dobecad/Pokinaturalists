@@ -23,6 +23,21 @@ def index(request):
     template_to_return = f'{template_base_dir}/geo.html'
     return render(request, f'{template_to_return}', context)
 
+def shop(request):
+    pass
+
+def items(request):
+    pass
+
+def party(request):
+    pass
+
+def profile(request):
+    pass
+
+def friends(request):
+    pass
+
 
 def get_user_ip_addr(request):
     client_ip, _ = get_client_ip(request)
