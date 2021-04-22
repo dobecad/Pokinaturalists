@@ -13,9 +13,10 @@ var trainerImg = "/static/pokinaturalist/img/trainer.png";
 function getLocation(token) {
     if (navigator.geolocation) {
         mapboxAccessToken = token;
-        navigator.geolocation.getCurrentPosition(showPosition);
+        $(document).ready(navigator.geolocation.getCurrentPosition(showPosition, error));
     } else { 
         alert("Geolocation is not supported by this browser.");
+        console.log("Geolocation not enabled on device.");
     }
 }
 
@@ -28,7 +29,7 @@ function showPosition(position) {
         center: latlng,
         dragging: false,
         zoomControl: false
-    }).setView([0, 0], 0);
+    }).fitWorld();
 
     // Play animation that zooms in on user's location
     map.flyTo(latlng, zoomLevel);
@@ -72,7 +73,6 @@ function trackUserLocation() {
         maximumAge: maxAge,
         timeout: timeUntilTimeout
     };
-    console.log("Starting watchPosition.");
     watchId = navigator.geolocation.watchPosition(success, error, options);
 
 }
@@ -92,5 +92,5 @@ function success(position) {
 
 function error(error) {
     console.log("Failed to update user location.");
-    console.log("Error: ", error);
+    console.log("Error: ", error.code);
 }
