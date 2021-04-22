@@ -17,46 +17,52 @@ def index(request):
 
     # request.session["IPv4_ADDR"] = client_ip
     context = {
-        "mapboxAppToken": str(os.getenv('MapboxAppToken'))
+        "mapboxAppToken": str(os.getenv('MapboxAppToken')),
+        "active_page": "home"
     }
     template_base_dir = 'pokinaturalist/game'
     template_to_return = f'{template_base_dir}/geo.html'
     return render(request, f'{template_to_return}', context)
 
 def shop(request):
-    context = {}
+    context = {
+        "active_page": "shop"
+    }
     template_base_dir = 'pokinaturalist/game'
     template_to_return = f'{template_base_dir}/shop.html'
     return render(request, f'{template_to_return}', context)
-    pass
 
 def items(request):
-    context = {}
+    context = {
+        "active_page": "items"
+    }
     template_base_dir = 'pokinaturalist/game'
     template_to_return = f'{template_base_dir}/items.html'
     return render(request, f'{template_to_return}', context)
-    pass
 
 def party(request):
-    context = {}
+    context = {
+        "active_page": "party"
+    }
     template_base_dir = 'pokinaturalist/game'
     template_to_return = f'{template_base_dir}/party.html'
     return render(request, f'{template_to_return}', context)
-    pass
 
 def profile(request):
-    context = {}
+    context = {
+        "active_page": "profile"
+    }
     template_base_dir = 'pokinaturalist/game'
     template_to_return = f'{template_base_dir}/profile.html'
     return render(request, f'{template_to_return}', context)
-    pass
 
 def friends(request):
-    context = {}
+    context = {
+        "active_page": "friends"
+    }
     template_base_dir = 'pokinaturalist/game'
     template_to_return = f'{template_base_dir}/friends.html'
     return render(request, f'{template_to_return}', context)
-    pass
 
 
 def get_user_ip_addr(request):
