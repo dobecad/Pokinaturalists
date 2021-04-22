@@ -15,16 +15,17 @@
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
     </head>
 
-    <body onload="getLocation('{{ mapboxAppToken }}')">
+    {% comment %} <body onload="getLocation('{{ mapboxAppToken }}')"> {% endcomment %}
+    <body>
         <div id="parent" class="container-fluid">
             <nav class="nav nav-pills bg-dark rounded-bottom py-2 nav-justified flex-column flex-sm-row" id="navbar">
-                <a class="nav-item nav-link flex-sm-fill" href="{% url 'shop' %}">Shop</a>
-                <a class="nav-item nav-link flex-sm-fill" href="{% url 'items' %}">Items</a>
-                <a class="nav-item nav-link flex-sm-fill" href="{% url 'party' %}">Party</a>
-                <a class="nav-item nav-link flex-sm-fill active" href="{% url 'pokinaturalist' %}">Pokinaturalist</a>
-                <a class="nav-item nav-link flex-sm-fill" href="{% url 'profile' %}">Profile</a>
-                <a class="nav-item nav-link flex-sm-fill" href="{% url 'friends' %}">Friends</a>
-                <a class="nav-item nav-link flex-sm-fill" href="#">Logout</a>
+                <a id="shop" class="nav-item nav-link flex-sm-fill {% if active_page == 'shop' %}active{% endif %}" href="{% url 'shop' %}">Shop</a>
+                <a id="items" class="nav-item nav-link flex-sm-fill {% if active_page == 'items' %}active{% endif %}" href="{% url 'items' %}" >Items</a>
+                <a id="party" class="nav-item nav-link flex-sm-fill {% if active_page == 'party' %}active{% endif %}" href="{% url 'party' %}" >Party</a>
+                <a id="game" class="nav-item nav-link flex-sm-fill {% if active_page == 'home' %}active{% endif %}" href="{% url 'pokinaturalist' %}">Pokinaturalist</a>
+                <a id="profile" class="nav-item nav-link flex-sm-fill {% if active_page == 'profile' %}active{% endif %}" href="{% url 'profile' %}">Profile</a>
+                <a id="friends" class="nav-item nav-link flex-sm-fill {% if active_page == 'friends' %}active{% endif %}" href="{% url 'friends' %}">Friends</a>
+                <a id="logout" class="nav-item nav-link flex-sm-fill" href="#">Logout</a>
             </nav>
 
             {% block content %}
