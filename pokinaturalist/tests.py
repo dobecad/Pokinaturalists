@@ -46,12 +46,28 @@ class PokinaturalistAppTestCase(TestCase):
         response = self.client.get(reverse('pokinaturalist'))
         self.assertIsNotNone(response.context['mapboxAppToken'])
 
-    def test_correct_base_html_is_returned(self):
+    def test_correct_base_html_is_returned_for_geo(self):
         '''
         Check that the route "pokinaturalist/" returns both the base.html and the game/geo.html
         '''
         response = self.client.get('/pokinaturalist/')
         self.assertTemplateUsed(response, 'pokinaturalist/base.html', 'pokinaturalist/game/geo.html')
+
+    def test_correct_base_html_is_returned_for_friends(self):
+        response = self.client.get('/pokinaturalist/')
+        self.assertTemplateUsed(response, 'pokinaturalist/base.html', 'pokinaturalist/game/friends.html')
+
+    def test_correct_base_html_is_returned_for_items(self):
+        response = self.client.get('/pokinaturalist/items')
+        self.assertTemplateUsed(response, 'pokinaturalist/base.html', 'pokinaturalist/game/items.html')
+
+    def test_correct_base_html_is_returned_for_party(self):
+        response = self.client.get('/pokinaturalist/party')
+        self.assertTemplateUsed(response, 'pokinaturalist/base.html', 'pokinaturalist/game/party.html')
+
+    def test_correct_base_html_is_returned_shop(self):
+        response = self.client.get('/pokinaturalist/shop')
+        self.assertTemplateUsed(response, 'pokinaturalist/base.html', 'pokinaturalist/game/shop.html')
 
     def test_allowed_hosts(self):
         response = self.client.get('/pokinaturalist/', HTTP_HOST='127.0.0.1')
@@ -61,6 +77,49 @@ class PokinaturalistAppTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_geo_html(self):
+        '''
+        Check that the expected div elements are being returned when the page is requested
+        '''
         response = self.client.get('/pokinaturalist/')
-        self.assertContains(response, '<div id="parent" class="container-md">')
+        self.assertContains(response, '<div id="parent" class="container-fluid">')
         self.assertContains(response, '<div id="map')
+
+    def test_friends_html(self):
+        '''
+        Check that the expected div elements are being returned when the page is requested
+        '''
+        response = self.client.get('/pokinaturalist/friends')
+        self.assertContains(response, '<div id="parent" class="container-fluid">')
+        self.assertContains(response, '<title>Friend List</title>')
+
+    def test_items_html(self):
+        '''
+        Check that the expected div elements are being returned when the page is requested
+        '''
+        response = self.client.get('/pokinaturalist/items')
+        self.assertContains(response, '<div id="parent" class="container-fluid">')
+        self.assertContains(response, '<title>Items</title>')
+
+    def test_party_html(self):
+        '''
+        Check that the expected div elements are being returned when the page is requested
+        '''
+        response = self.client.get('/pokinaturalist/party')
+        self.assertContains(response, '<div id="parent" class="container-fluid">')
+        self.assertContains(response, '<title>Party</title>')
+
+    def test_profile_html(self):
+        '''
+        Check that the expected div elements are being returned when the page is requested
+        '''
+        response = self.client.get('/pokinaturalist/profile')
+        self.assertContains(response, '<div id="parent" class="container-fluid">')
+        self.assertContains(response, '<title>Profile</title>')
+
+    def test_shop_html(self):
+        '''
+        Check that the expected div elements are being returned when the page is requested
+        '''
+        response = self.client.get('/pokinaturalist/shop')
+        self.assertContains(response, '<div id="parent" class="container-fluid">')
+        self.assertContains(response, '<title>Shop</title>')
