@@ -18,12 +18,12 @@
     <body onload="getLocation('{{ mapboxAppToken }}')">
         <div id="parent" class="container-fluid">
             <nav class="nav nav-pills bg-dark rounded-bottom py-2 nav-justified flex-column flex-sm-row" id="navbar">
-                <a class="nav-item nav-link flex-sm-fill" href="#">Shop</a>
-                <a class="nav-item nav-link flex-sm-fill" href="#">Items</a>
-                <a class="nav-item nav-link flex-sm-fill" href="#">Party</a>
-                <a class="nav-item nav-link flex-sm-fill active" href="#">Pokinaturalist</a>
-                <a class="nav-item nav-link flex-sm-fill" href="#">Profile</a>
-                <a class="nav-item nav-link flex-sm-fill" href="#">Friends</a>
+                <a class="nav-item nav-link flex-sm-fill" href="{% url 'shop' %}">Shop</a>
+                <a class="nav-item nav-link flex-sm-fill" href="{% url 'items' %}">Items</a>
+                <a class="nav-item nav-link flex-sm-fill" href="{% url 'party' %}">Party</a>
+                <a class="nav-item nav-link flex-sm-fill active" href="{% url 'pokinaturalist' %}">Pokinaturalist</a>
+                <a class="nav-item nav-link flex-sm-fill" href="{% url 'profile' %}">Profile</a>
+                <a class="nav-item nav-link flex-sm-fill" href="{% url 'friends' %}">Friends</a>
                 <a class="nav-item nav-link flex-sm-fill" href="#">Logout</a>
             </nav>
 

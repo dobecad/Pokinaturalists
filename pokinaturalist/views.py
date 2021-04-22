@@ -24,18 +24,38 @@ def index(request):
     return render(request, f'{template_to_return}', context)
 
 def shop(request):
+    context = {}
+    template_base_dir = 'pokinaturalist/game'
+    template_to_return = f'{template_base_dir}/shop.html'
+    return render(request, f'{template_to_return}', context)
     pass
 
 def items(request):
+    context = {}
+    template_base_dir = 'pokinaturalist/game'
+    template_to_return = f'{template_base_dir}/items.html'
+    return render(request, f'{template_to_return}', context)
     pass
 
 def party(request):
+    context = {}
+    template_base_dir = 'pokinaturalist/game'
+    template_to_return = f'{template_base_dir}/party.html'
+    return render(request, f'{template_to_return}', context)
     pass
 
 def profile(request):
+    context = {}
+    template_base_dir = 'pokinaturalist/game'
+    template_to_return = f'{template_base_dir}/profile.html'
+    return render(request, f'{template_to_return}', context)
     pass
 
 def friends(request):
+    context = {}
+    template_base_dir = 'pokinaturalist/game'
+    template_to_return = f'{template_base_dir}/friends.html'
+    return render(request, f'{template_to_return}', context)
     pass
 
 
