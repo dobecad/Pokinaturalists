@@ -125,8 +125,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
-SITE_ID = 4
+#set this to 4 for local, set it to 2 for heroku
+SITE_ID = 2
 LOGIN_REDIRECT_URL = '/'
 
 # Static files (CSS, JavaScript, Images)
