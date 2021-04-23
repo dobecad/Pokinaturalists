@@ -11,8 +11,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 import os
+import sys
 from pathlib import Path
-import django_heroku
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -43,6 +43,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 ]
 
 MIDDLEWARE = [
@@ -79,12 +85,52 @@ WSGI_APPLICATION = 'Pokinaturalists.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+
+if 'test' in sys.argv:
+    DATABASES = {
+        'default': {
+            'ENGINE': str(os.getenv('DB_ENGINE')),
+            'NAME': str(os.getenv('TEST_DB_NAME')),
+            'USER': str(os.getenv('TEST_DB_USER')),
+            'PASSWORD': str(os.getenv('TEST_DB_PASS')),
+            'HOST': str(os.getenv('TEST_DB_HOST')),
+            'PORT': str(os.getenv('DB_PORT')),
+            'TEST': {
+                'NAME': str(os.getenv('TEST_DB_NAME'))
+            }
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': str(os.getenv('DB_ENGINE')),
+            'NAME': str(os.getenv('DB_NAME')),
+            'USER': str(os.getenv('DB_USER')),
+            'PASSWORD': str(os.getenv('DB_PASS')),
+            'HOST': str(os.getenv('DB_HOST')),
+            'PORT': str(os.getenv('DB_PORT')),
+        }
+    }
+
+# Here's a copy of the databases so that you can test on your own machine
+# DATABASES = {
+#     'default': {
+#         'ENGINE': str(os.getenv('DB_ENGINE')),
+#         'NAME': str(os.getenv('LOCAL_DB_NAME')),
+#         'USER': str(os.getenv('DB_USER')),
+#         'PASSWORD': str(os.getenv('DB_PASS')),
+#         'HOST': str(os.getenv('DB_HOST')),
+#         'PORT': str(os.getenv('DB_PORT')),
+#     }
+# }
+
+#Commenting this out incase people want to run the database locally.
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation
@@ -104,7 +150,22 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
 
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
@@ -119,22 +180,12 @@ USE_L10N = True
 
 USE_TZ = True
 
-SITE_ID = 2
-LOGIN_REDIRECT_URL = '/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-
 SITE_ID = 3
 LOGIN_REDIRECT_URL = '/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-
-STATICFILES_DIR = (os.path.join(BASE_DIR, 'static'))
-
-django_heroku.settings(locals())
-
