@@ -8,14 +8,13 @@
 {% block head_title %}{% trans " " %}{% endblock %}
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'login/login.css' %}">
+    <link rel="stylesheet" href="{% static 'styleSheets/login.css' %}">
 </head>
 {% block content %}
 
-<h1>{% trans "Sign In" %}</h1>
 
 <video poster="{% static 'images/img_3w.png' %}" autoplay playsinline muted loop id="back">
-        <source src="{% static 'images/worldSpin.webm' %}" type="video/webm">
+        <source src="{% static 'pokinaturalist/img/worldSpin.webm' %}" type="video/webm">
     </video>
 
 
@@ -25,6 +24,7 @@
 
 
 <form style="text-align:center" class="login" method="POST" action="{% url 'account_login' %}">
+  <h1 class="header">{% trans "Sign In" %}</h1>
   {% csrf_token %}
   {{ form.as_p }}
   {% if redirect_field_value %}
