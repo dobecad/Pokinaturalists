@@ -1,0 +1,16 @@
+#parent {
+    position: relative;
+    width: 100%;
+}
+
+#map { 
+    height: 94vh;
+}
+
+.nav>a:focus, .nav>a:hover {
+    background-color: rgb(138, 240, 201);
+}
+
+.nav>a {
+    font-size: 1.6em;
+}

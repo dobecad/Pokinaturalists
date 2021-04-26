@@ -64,10 +64,12 @@ def friends(request):
     template_to_return = f'{template_base_dir}/friends.html'
     return render(request, f'{template_to_return}', context)
 
+def login(request):
+    context = {}
+    template_base_dir = 'pokinaturalist/'
+    template_to_return = f'{template_base_dir}/index.html'
+    return (request, f'{template_to_return}', context)
 
 def get_user_ip_addr(request):
     client_ip, _ = get_client_ip(request)
     return client_ip
-
-class HomePageView(TemplateView):
-    template_name = 'pokinaturalist/home.html'

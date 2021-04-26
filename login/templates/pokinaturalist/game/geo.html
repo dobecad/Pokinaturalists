@@ -1,0 +1,22 @@
+<!--  
+This is a simple html file that can be run using open geo.html.
+This file will display the user location after a button is pressed if location sharing is on.
+It achieves this through geolocation API calls.
+-->
+
+{% extends "pokinaturalist/base.html" %}
+{% load static %}
+
+{% block title %}Pokinaturalist{% endblock %}
+
+
+{% block content %}
+
+    <div id="map" class="container-fluid">
+        <script>
+            {% comment %} Load map only when we are on the geo page. {% endcomment %}
+            getLocation('{{ mapboxAppToken }}');
+        </script>
+    </div>
+
+{% endblock %}
