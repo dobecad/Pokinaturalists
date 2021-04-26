@@ -10,6 +10,18 @@ load_dotenv()
 # Create your views here.
 def login(request):
     context = {}
-    template_base_dir = 'login/'
+    template_base_dir = 'login'
     template_to_return = f'{template_base_dir}/index.html'
-    return (request, f'{template_to_return}', context)
+    return render(request, f'{template_to_return}', context)
+
+def accounts_login(request):
+    context = {}
+    template_base_dir = 'account'
+    template_to_return = f'{template_base_dir}/login.html'
+    return render(request, f'{template_to_return}', context)
+
+def accounts_signup(request):
+    context = {}
+    template_base_dir = 'account'
+    template_to_return = f'{template_base_dir}/signup.html'
+    return render(request, f'{template_to_return}', context)

@@ -36,6 +36,7 @@ ALLOWED_HOSTS = ['pokinaturalists.herokuapp.com', '127.0.0.1']
 
 INSTALLED_APPS = [
     'pokinaturalist.apps.PokinaturalistConfig',
+    'login.apps.LoginConfig',
     'inaturalist.apps.InaturalistConfig',
     'django.contrib.admin',
     'django.contrib.auth',
