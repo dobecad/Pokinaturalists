@@ -6,6 +6,10 @@
     position: relative;
     width: 100%;
 }
+#parent #map{
+    position: relative;
+    top: -18px;
+}
 #trippy{
     position: relative;
     max-width: 100px;
