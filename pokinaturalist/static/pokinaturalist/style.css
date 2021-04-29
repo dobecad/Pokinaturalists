@@ -1,6 +1,6 @@
 #container
 {
-    position: fixed;
+    position: relative;
 }
 #parent {
     position: relative;
