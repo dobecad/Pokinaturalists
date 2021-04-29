@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 import os
+import sys
 from pathlib import Path
 from dotenv import load_dotenv
 load_dotenv()
@@ -85,17 +86,31 @@ WSGI_APPLICATION = 'Pokinaturalists.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 
-
-DATABASES = {
-    'default': {
-        'ENGINE': str(os.getenv('DB_ENGINE')),
-        'NAME': str(os.getenv('DB_NAME')),
-        'USER': str(os.getenv('DB_USER')),
-        'PASSWORD': str(os.getenv('DB_PASS')),
-        'HOST': str(os.getenv('DB_HOST')),
-        'PORT': str(os.getenv('DB_PORT')),
+if 'test' in sys.argv:
+    DATABASES = {
+        'default': {
+            'ENGINE': str(os.getenv('DB_ENGINE')),
+            'NAME': str(os.getenv('TEST_DB_NAME')),
+            'USER': str(os.getenv('TEST_DB_USER')),
+            'PASSWORD': str(os.getenv('TEST_DB_PASS')),
+            'HOST': str(os.getenv('TEST_DB_HOST')),
+            'PORT': str(os.getenv('DB_PORT')),
+            'TEST': {
+                'NAME': str(os.getenv('TEST_DB_NAME'))
+            }
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': str(os.getenv('DB_ENGINE')),
+            'NAME': str(os.getenv('DB_NAME')),
+            'USER': str(os.getenv('DB_USER')),
+            'PASSWORD': str(os.getenv('DB_PASS')),
+            'HOST': str(os.getenv('DB_HOST')),
+            'PORT': str(os.getenv('DB_PORT')),
+        }
+    }
 
 # Here's a copy of the databases so that you can test on your own machine
 # DATABASES = {
