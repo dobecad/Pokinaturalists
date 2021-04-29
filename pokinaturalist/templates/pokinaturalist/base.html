@@ -20,8 +20,7 @@
         {% comment %} Tell mobile browser to disable unwanted sclaing of the page {% endcomment %}
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     </head>
-    <div id:"side">
-        <div id="side-menu">
+        <body id="side-menu">
             <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
             <label for="openSidebarMenu" class="sidebarIconToggle">
                 <div class="spinner diagonal part-1"></div>
@@ -37,8 +36,8 @@
                     <li><div ontouchstart=""><div class="button"><a href="#" onclick="openNav()">Test button</a></div></div></li>
                 </ul>
             </div>
-        </div>
-         </div>
+        </body>
+
     <body id="container" onload="getLocation('{{ mapboxAppToken }}')">
        
         
