@@ -6,6 +6,10 @@
     position: relative;
     width: 100%;
 }
+#side{
+    position: absolute;
+    z-index: 1;
+}
 #parent #map{
     position: relative;
     top: -18px;
