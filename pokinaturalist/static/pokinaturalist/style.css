@@ -16,6 +16,8 @@
     height: auto;
 }
 #map { 
+    position: relative;
+    z-index: -1;
     height: 94vh;
 }
 
