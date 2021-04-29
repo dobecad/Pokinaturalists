@@ -8,7 +8,7 @@
 }
 #side{
     position: absolute;
-    z-index: 1;
+
 }
 #trippy{
     position: relative;
@@ -33,7 +33,7 @@ html, body {
     height: 100%;
 }
 #side-menu{
-    z-index: 1;
+
     position: absolute;
 }
 body {
