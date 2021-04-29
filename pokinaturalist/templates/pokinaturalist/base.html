@@ -14,6 +14,7 @@
         <script src="{% static 'pokinaturalist/geo.js' %}"></script>
         <script src="{% static 'lottie.js' %}"></script>
         <script src="{% static 'back.js' %}"></script>
+        <script src="{% static 'slidout.js' %}"></script>
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
     </head>
     
@@ -32,10 +33,11 @@
                     <li><span><a href="#" >settings</a> <img src="{% static 'images/gear_setting.svg' %} " align="right"></span> </li>
                     <li><span ><a href="#" >profile</a><img src="{% static 'images/TRIP.svg' %} " id="trippy" ></span></li>
                     <li><span><a href="#" >observations</a> <img src="{% static 'images/backpack.svg' %} " align="right"></span></li>
-                    <li><div ontouchstart=""><div class="button"><a href="#">Test button</a></div></div></li>
+                    <li><div ontouchstart=""><div class="button"><a href="#" onclick="openNav()">Test button</a></div></div></li>
                 </ul>
             </div>
         </div>
+        
         <div id="parent" class="container-fluid">
             <!-- old code, not sure if we want to use it
             <nav class="nav nav-pills bg-dark rounded-bottom py-2 nav-justified flex-column flex-sm-row" id="navbar">
@@ -52,6 +54,20 @@
             {% endblock %}
 
         </div>
+        <div id="myNav" class="overlay">
+
+            <!-- Button to close the overlay navigation -->
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          
+            <!-- Overlay content -->
+            <div class="overlay-content">
+              <a href="#">do what you want</a>
+              <a href="#">do whatever</a>
+              <a href="#">bro i told you you can do whatever</a>
+              <a href="#">please do something</a>
+            </div>
+          
+          </div>
     
     </body>
 
