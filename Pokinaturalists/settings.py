@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    'login.apps.LoginConfig',
+
 
     'allauth',
     'allauth.account',
@@ -125,8 +125,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
-SITE_ID = 2
+#set this to 4 for local, set it to 2 for heroku
+SITE_ID = 3
 LOGIN_REDIRECT_URL = '/'
 
 # Static files (CSS, JavaScript, Images)
@@ -136,7 +136,9 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
-SITE_ID = 4
+
+SITE_ID = 2
+
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 

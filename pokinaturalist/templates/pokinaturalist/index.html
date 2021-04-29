@@ -1,0 +1,63 @@
+{% load socialaccount %}
+{% load static %}
+<html>
+  <head>
+    <title>Pokinaturalist</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+      <link rel="stylesheet" href="{% static 'styleSheets/index.css' %}">
+  </head>
+  <video poster="{% static 'images/img_3w.png' %}" autoplay playsinline muted loop id="back">
+        <source src="{% static 'pokinaturalist/img/worldSpin.webm' %}" type="video/webm">
+  </video>
+
+
+<div id = "welcome">
+    <body>
+    <div id="pokedex">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="{% static 'fade.js'%}"></script>
+        <video autoplay playsinline muted>
+            <source src="{% static 'pokinaturalist/img/pok2.webm' %}" type="video/webm">
+        </video>
+    </div>
+        
+    <div id="main">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static 'fade.js'%}"></script>
+    <header class="welcome-banner">
+    <h1>Pokinaturalist
+
+    {% if user.is_authenticated %}
+
+   <span id="span1">Welcome, {{ user.username }} !</span>
+        <form method="post" action="{% url 'account_logout' %}">
+            {% csrf_token %}
+            {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+            {% endif %}
+            <button class="myButton" type="submit">sign out</button>
+        </form>
+        <button class="myButton" onclick="myFunction()">Continue</button>
+        <script>
+            function myFunction() {
+                location.href = '/pokinaturalist';
+            }
+        </script>
+
+    {% else %}
+    <span id="span1">Please Login</span>
+        
+    <button class="myButton" onclick="myFunction()">Sign in</button>
+        <script>
+            function myFunction() {
+                location.href = '/accounts/login';
+            }
+        </script>
+    {% endif %}
+    </div>
+    </body>
+    </h1>
+    </header>
+</div>
+
+</html>

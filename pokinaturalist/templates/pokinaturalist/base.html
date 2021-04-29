@@ -16,6 +16,9 @@
         <script src="{% static 'back.js' %}"></script>
         <script src="{% static 'slidout.js' %}"></script>
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
+        {% comment %} Tell mobile browser to disable unwanted sclaing of the page {% endcomment %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     </head>
     
     <body id="container" onload="getLocation('{{ mapboxAppToken }}')">

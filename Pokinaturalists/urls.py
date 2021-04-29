@@ -19,7 +19,7 @@ from django.views.generic import TemplateView
 
 
 urlpatterns = [
-    path('', TemplateView.as_view(template_name="login/index.html")),
+    path('', TemplateView.as_view(template_name="pokinaturalist/index.html")),
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('pokinaturalist/', include('pokinaturalist.urls'))
