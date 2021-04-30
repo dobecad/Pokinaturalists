@@ -81,11 +81,14 @@ body {
     height: 100%;
     position: fixed;
     left: 0;
-    width: 250px;
+    width: 300px;
     z-index: 1;
-    transform: translateX(-250px);
+    transform: translateX(-300px);
     transition: transform 250ms ease-in-out;
-    background: linear-gradient(180deg, #2528bb 0%, #d67041 100%);
+    /*background: linear-gradient(180deg, #2528bb 0%, #d67041 100%);*/
+    background-image: url('../images/slideout.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
     
 }
 
@@ -94,6 +97,12 @@ body {
     margin:0;
     padding:0;
     border-top: 1px solid rgba(255, 255, 255, 0.10);
+}
+.sidebarMenu #base{
+    width: 500px;
+    height: auto;
+    z-index: 0;
+    position: absolute;
 }
 .sidebarMenuInner li{
     list-style: none;
@@ -107,10 +116,10 @@ body {
 .sidebarMenuInner li span{
     display: block;
     font-size: 14px;
-    color: rgba(255, 255, 255, 0.50);
+    /*color: rgba(255, 255, 255, 0.50);*/
 }
 .sidebarMenuInner li a{
-    color: #fff;
+    /*color: #fff;*/
     text-transform: uppercase;
     font-weight: bold;
     cursor: pointer;
@@ -206,8 +215,15 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   position:relative;
   display:inline-block;
   margin:20px;
+  margin-top: 30px;
 }
-
+#firstbutton
+{
+  position:relative;
+  display:inline-block;
+  margin:20px;
+  margin-top: 60px;
+}
 .button a{
   color:white;
   font-family:Helvetica, sans-serif;
