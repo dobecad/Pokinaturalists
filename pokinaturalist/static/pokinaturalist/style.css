@@ -117,7 +117,7 @@ body {
 .sidebarMenuInner li span{
     display: block;
     font-size: 14px;
-    color: rgba(255, 255, 255, 0.50);
+    /*color: rgba(255, 255, 255, 0.50);*/
 }
 .sidebarMenuInner li a{
     color: #fff;
@@ -216,7 +216,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   position:relative;
   display:inline-block;
   margin:20px;
-  margin-top: 80px;
+  margin-top: 120px;
 }
 
 .button a{
