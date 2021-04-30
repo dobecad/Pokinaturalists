@@ -216,14 +216,17 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   display:inline-block;
   margin:20px;
   margin-top: 30px;
-}
+
+
 #firstbutton
 {
   position:relative;
   display:inline-block;
   margin:20px;
   margin-top: 60px;
+
 }
+
 .button a{
   color:white;
   font-family:Helvetica, sans-serif;
