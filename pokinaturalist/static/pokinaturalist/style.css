@@ -84,7 +84,6 @@ body {
     width: 300px;
     z-index: 1;
     transform: translateX(-250px);
-    border: solid 2px #000;
     transition: transform 250ms ease-in-out;
     /*background: linear-gradient(180deg, #2528bb 0%, #d67041 100%);*/
     background-image: url('../images/slideout.svg');
@@ -223,7 +222,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   position:relative;
   display:inline-block;
   margin:20px;
-  margin-top: 90px;
+  margin-top: 70px;
 }
 .button a{
   color:white;
