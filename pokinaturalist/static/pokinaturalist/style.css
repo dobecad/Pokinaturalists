@@ -86,7 +86,7 @@ body {
     transform: translateX(-250px);
     transition: transform 250ms ease-in-out;
     /*background: linear-gradient(180deg, #2528bb 0%, #d67041 100%);*/
-    background-image: url('../images/slideout.svg');
+    background-image: url('../images/slideout.svg') no-repeat;
     background-size: contain;
     
 }
