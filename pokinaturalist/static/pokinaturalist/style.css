@@ -37,6 +37,9 @@ html, body {
 #side-menu{
 
     position: absolute;
+    background-image: url('../images/slideout.svg');
+    background-size: 1000px 1000px;
+    background-repeat: no-repeat;
 }
 body {
     background: #fff;
@@ -86,9 +89,7 @@ body {
     transform: translateX(-250px);
     transition: transform 250ms ease-in-out;
     /*background: linear-gradient(180deg, #2528bb 0%, #d67041 100%);*/
-    background-image: url('../images/slideout.svg');
-    background-size: cover;
-    background-repeat: no-repeat;
+    
     
 }
 
