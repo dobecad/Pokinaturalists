@@ -216,6 +216,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   display:inline-block;
   margin:20px;
   margin-top: 2px;
+  max-width: 70%;
 }
 
 #firstbutton
