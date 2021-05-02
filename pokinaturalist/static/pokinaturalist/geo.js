@@ -5,7 +5,7 @@ var userMarker;
 var userIcon;
 var mapboxAccessToken;
 var watchId;
-var zoomLevel = 18;
+var zoomLevel = 18;     // Lower number = more zoomed out
 var maxAge = 25000;
 var timeUntilTimeout = 20000;
 var trainerImg = "/static/pokinaturalist/img/trainer.png";
@@ -64,6 +64,7 @@ function showPosition(position) {
 
     // After zoom animation is finished, begin continuosly tracking user device location
     map.on('zoomend', trackUserLocation);
+    get_creatures(position.coords.longitude, position.coords.latitude);
 }
 
 function trackUserLocation() {
