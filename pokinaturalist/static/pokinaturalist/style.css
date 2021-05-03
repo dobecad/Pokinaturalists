@@ -342,9 +342,10 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   /*trying to make a dynamic text box*/
 
   .typewriter{
-      max-width: 50%;
-      font-size: 30%;
-      max-height: auto;
+      
+      
+      width: 50%;
+      height: auto;
       float: right;
     background-color: #003a91;
   }
@@ -354,7 +355,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
     white-space: nowrap; /* Keeps the content on a single line */
     margin: 0 auto; /* Gives that scrolling effect as the typing happens */
     letter-spacing: .15em; /* Adjust as needed */
-    
+    font-size: 30%;
     animation: 
       typing 3.5s steps(40, end),
       blink-caret .75s step-end infinite;
