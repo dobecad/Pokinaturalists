@@ -5,7 +5,7 @@ function openNav() {
     var trainer = document.getElementsByClassName("leaflet-marker-icon leaflet-zoom-animated leaflet-interactive")[0];
     document.getElementById("myNav").style.width = "100%";
     fade(trainer);
-    reset();
+
   }
   
   /* Close when someone clicks on the "x" symbol inside the overlay */
@@ -13,7 +13,7 @@ function openNav() {
     var trainer = document.getElementsByClassName("leaflet-marker-icon leaflet-zoom-animated leaflet-interactive")[0];
     document.getElementById("myNav").style.width = "0%";
     unfade(trainer);
-    reset();
+
   }
 
 
@@ -47,7 +47,6 @@ function unfade(element) {
 function reset()
 {
     var element = document.getElementById("display");
-    e.preventDefault;
   
     // -> removing the class
     element.classList.remove("typewriter");
