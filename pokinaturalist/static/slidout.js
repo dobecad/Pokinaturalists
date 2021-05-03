@@ -44,7 +44,7 @@ function unfade(element) {
 }
 
 
-function reset()
+function reset(text)
 {
     var element = document.getElementById("display");
   
@@ -54,4 +54,5 @@ function reset()
   
     // -> and re-adding the class
     element.classList.add("typewriter");
+    element.innerText = text;
 }
