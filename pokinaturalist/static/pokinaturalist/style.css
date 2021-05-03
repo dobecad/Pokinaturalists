@@ -344,6 +344,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   .display-box{
     width: 80%;
     margin-left: 30px;
+    margin-top: 30px;
     background-color: #003a91;
   }
 .typewriter h1 {
@@ -352,6 +353,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
     white-space: nowrap; /* Keeps the content on a single line */
     margin: 0 auto; /* Gives that scrolling effect as the typing happens */
     letter-spacing: .15em; /* Adjust as needed */
+    font-size: 88%;
     animation: 
       typing 3.5s steps(40, end),
       blink-caret .75s step-end infinite;
