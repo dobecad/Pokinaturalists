@@ -224,6 +224,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   display:inline-block;
   margin:20px;
   margin-top: 60px;
+  background-image: url("../images/gear_setting.svg");
 }
 
 .button a{
