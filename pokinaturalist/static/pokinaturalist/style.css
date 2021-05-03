@@ -235,7 +235,6 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   text-align: center;
   text-decoration:none;
   background-color:rgb(55, 127, 223);
-  background-image: url("../images/gear_setting.svg");
   display:block;
   position:relative;
   padding:20px 40px;
@@ -252,7 +251,9 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   -moz-border-radius: 5px;
   border-radius: 5px;
 }
-
+.button a #set{
+    background-image: url("../images/gear_setting.svg");
+}
 .button a:active{
   top:10px;
   background-color:rgb(55, 127, 223);
