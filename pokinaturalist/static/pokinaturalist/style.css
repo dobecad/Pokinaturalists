@@ -262,8 +262,8 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 
 .button:after{
   content:"";
-  height:100%;
-  width:110%;
+  height:140%;
+  width:150%;
   padding:4px;
   position: absolute;
   bottom:-15px;
@@ -341,7 +341,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 
   /*trying to make a dynamic text box*/
 
-#sidebarMenu .typewriter{
+#sidebarMenu div.typewriter{
     background-color: #003a91;
   }
 .typewriter h1 {
