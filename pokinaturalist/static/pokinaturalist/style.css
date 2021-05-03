@@ -253,6 +253,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 }
 .button #set{
     background-image: url("../images/gear_setting.svg");
+    background-repeat: no-repeat;
 }
 .button a:active{
   top:10px;
