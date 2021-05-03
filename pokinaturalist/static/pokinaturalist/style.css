@@ -345,8 +345,8 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
       
       
       width: 50%;
-      height: auto;
-      float: right;
+      height: 100%;
+      float: center;
     background-color: #003a91;
   }
 .typewriter h1 {
