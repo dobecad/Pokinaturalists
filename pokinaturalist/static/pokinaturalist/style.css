@@ -341,10 +341,10 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 
   /*trying to make a dynamic text box*/
 
-  .sidebarMenuInner .typewriter{
+#sidebarMenu .typewriter{
     background-color: #003a91;
   }
-  .sidebarMenuInner .typewriter h1 {
+.typewriter h1 {
     overflow: hidden; /* Ensures the content is not revealed until the animation */
     border-right: .15em solid orange; /* The typwriter cursor */
     white-space: nowrap; /* Keeps the content on a single line */
