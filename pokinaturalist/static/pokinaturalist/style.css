@@ -342,6 +342,9 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   /*trying to make a dynamic text box*/
 
   .typewriter{
+      max-width: 50%;
+      max-height: auto;
+      margin-top: 30px;
     background-color: #003a91;
   }
 .typewriter h1 {
