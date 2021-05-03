@@ -54,5 +54,5 @@ function reset(text)
   
     // -> and re-adding the class
     element.classList.add("typewriter");
-    element.innerText = text;
+    element.innerText = text.name;
 }
