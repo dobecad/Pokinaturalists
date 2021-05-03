@@ -251,7 +251,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   -moz-border-radius: 5px;
   border-radius: 5px;
 }
-.button a #set{
+.button #set{
     background-image: url("../images/gear_setting.svg");
 }
 .button a:active{
