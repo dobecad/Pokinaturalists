@@ -17,20 +17,31 @@ class User(models.Model):
 # Move contains Primary, name, strength
 class Move(models.Model):
     move_name = models.CharField(max_length=25, unique=True)
+    #type is an ENUM: 1: , 2: , 3: , 4: , 5:
+    move_type = models.IntegerField
     move_strength = models.IntegerField()
 
     class Meta:
         app_label = "pokinaturalist"
 
 #Creature contains primary, link to owner, nickname, observation url, strength and moveset
+#Type, Nickname, ID, owner's ID, photo, photo wiki, strength, def, health, speed, lvl, exp
 class Creature(models.Model):
     owner_id = models.ForeignKey(User, on_delete=models.CASCADE)
     nickname = models.CharField(max_length=50)
     #link to icon
     observation_photo = models.CharField(max_length=200)
     observation_wiki = models.CharField(max_length=200)
+
+    level = models.IntegerField()
+    experience = models.BigIntegerField()
+
+    type = models.IntegerField()
     strength = models.IntegerField()
-    moveset = models.ManyToManyField(Move)
+    defense = models.IntegerField()
+    health = models.IntegerField()
+    speed = models.IntegerField()
+    move = models.ForeignKey(Move, on_delete=models.RESTRICT)
 
     class Meta:
         app_label = "pokinaturalist"
