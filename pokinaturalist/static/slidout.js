@@ -47,12 +47,12 @@ function unfade(element) {
 function reset(text)
 {
     var element = document.getElementById("display");
-  
+    var displayText = document.getElementById("display-text");
     // -> removing the class
     element.classList.remove("typewriter");
     void element.offsetWidth;
   
     // -> and re-adding the class
     element.classList.add("typewriter");
-    element.innerText = text.name;
+    displayText.innerText = text.name;
 }
