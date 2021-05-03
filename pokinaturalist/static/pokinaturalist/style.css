@@ -341,14 +341,16 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 
   /*trying to make a dynamic text box*/
 
-
+  .sidebarMenuInner .typewriter{
+    background-color: #003a91;
+  }
   .sidebarMenuInner .typewriter h1 {
     overflow: hidden; /* Ensures the content is not revealed until the animation */
     border-right: .15em solid orange; /* The typwriter cursor */
     white-space: nowrap; /* Keeps the content on a single line */
     margin: 0 auto; /* Gives that scrolling effect as the typing happens */
     letter-spacing: .15em; /* Adjust as needed */
-    background-color: #003a91;
+    
     animation: 
       typing 3.5s steps(40, end),
       blink-caret .75s step-end infinite;
