@@ -48,6 +48,11 @@ function reset(text)
 {
     var element = document.getElementById("display");
     var displayText = document.getElementById("display-text");
+    if(displayText)
+    {
+        console.log("found display text");
+        console.log(text.name);
+    }
     // -> removing the class
     element.classList.remove("typewriter");
     void element.offsetWidth;
