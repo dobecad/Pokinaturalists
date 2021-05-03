@@ -44,7 +44,7 @@ function unfade(element) {
 // this is for the text box 
 // retrieve the element
 "use strict";
-element = document.getElementById("display");
+var element = document.getElementById("display");
 
 // reset the transition by...
 element.addEventListener("click", function(e) {
