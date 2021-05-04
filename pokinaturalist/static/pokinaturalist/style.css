@@ -109,8 +109,10 @@ body {
    /* color: #fff;*/
     text-transform: uppercase;
     font-weight: bold;
+    float: left;
     padding: 20px;
     cursor: pointer;
+    margin-top: 170px;
     /*order-bottom: 1px solid rgba(255, 255, 255, 0.10);*/
 }
 .sidebarMenuInner li span{
@@ -224,7 +226,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   position:relative;
   display:inline-block;
   margin:20px;
-  margin-top: 80px;
+  /*margin-top: 80px;*/
   
 }
 
