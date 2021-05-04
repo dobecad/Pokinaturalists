@@ -346,11 +346,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 
   /*trying to make a dynamic text box*/
 
-  .displayContainer{
-    width: 220px;
-    height: 20px;
-    background-color: rgb(46,46,46);
-  }
+
   .display-box{
       position: absolute;
     width: 220px;
@@ -361,7 +357,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
     background-image: url('../images/visor.svg');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
+    background-size: 100vh 100vw;
     
   }
 .typewriter h1 {
