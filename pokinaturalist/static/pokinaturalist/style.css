@@ -348,6 +348,8 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 
   .display-box{
       position: absolute;
+    width: 100%;
+    height: auto;
     z-index: 2;
     margin-left: 30px;
     margin-top: 50px;
