@@ -346,10 +346,10 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 
   /*trying to make a dynamic text box*/
 
-  .display-box{
+  .displayContainer{
       position: absolute;
-    width: 100%;
-    height: auto;
+    width: 220px;
+    height: 20px;
     z-index: 2;
     margin-left: 30px;
     margin-top: 50px;
