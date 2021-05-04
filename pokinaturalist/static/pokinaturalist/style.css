@@ -364,7 +364,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
     border-right: .15em solid orange; /* The typwriter cursor */
     white-space: nowrap; /* Keeps the content on a single line */
     margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-    
+    vertical-align: middle;
     letter-spacing: .15em; /* Adjust as needed */
     color: #fff;
     font-size: 99%;
