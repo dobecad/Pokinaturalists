@@ -348,9 +348,9 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 
   .display-box{
       position: absolute;
-    width: 220px;
-    height: 20px;
     z-index: 2;
+    margin-left: 30px;
+    margin-top: 50px;
     background-image: url('../images/visor.svg');
     background-repeat: no-repeat;
     background-position: center;
