@@ -373,7 +373,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
     font-size: 99%;
     text-align: center;
     animation: 
-      typing 3.5s steps(40, end),
+      typing 1.5s steps(40, end),
       blink-caret .75s step-end infinite;
   }
   
