@@ -357,7 +357,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
     background-image: url('../images/visor.svg');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 100vh 100vw;
+    background-size: cover;
     
   }
 .typewriter h1 {
