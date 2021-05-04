@@ -94,7 +94,7 @@ body {
 
 .sidebarMenuInner{
     position: absolute;
-    margin:0;
+    margin:170px;
     padding:0;
     /*border-top: 1px solid rgba(255, 255, 255, 0.10);*/
 }
@@ -112,7 +112,6 @@ body {
     float: left;
     padding: 20px;
     cursor: pointer;
-    margin-top: 170px;
     /*order-bottom: 1px solid rgba(255, 255, 255, 0.10);*/
 }
 .sidebarMenuInner li span{
