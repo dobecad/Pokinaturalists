@@ -348,7 +348,9 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 
 
   .display-box{
-      position: relative;
+      position: absolute;
+      display: flex;
+      justify-content: center;
     width: 260px;
     height: 95px;
     z-index: 2;
@@ -357,7 +359,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
     background-image: url('../images/visor.svg');
     background-repeat: no-repeat;
     background-size: cover;
-    text-align: center;
+
     
   }
 .typewriter h1 {
@@ -365,7 +367,6 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
     border-right: .15em solid orange; /* The typwriter cursor */
     white-space: nowrap; /* Keeps the content on a single line */
     margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-    position: absolute;
     letter-spacing: .15em; /* Adjust as needed */
     color: #fff;
     font-size: 99%;
