@@ -351,6 +351,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
       position: absolute;
       display: flex;
       align-items: center;
+      justify-content: center;
     width: 260px;
     height: 95px;
     z-index: 2;
