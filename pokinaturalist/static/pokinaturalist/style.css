@@ -216,6 +216,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   display:inline-block;
   margin:20px;
   margin-top: 2px;
+  transform: scale(.4);
 }
 
 #firstbutton
@@ -355,7 +356,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
     width: 250px;
     height: 350px;
     z-index: 2;
-    margin-left: 10px;
+    margin-left: 5px;
     margin-top: 50px;
     background-image: url('../images/visor.svg');
     background-repeat: no-repeat;
