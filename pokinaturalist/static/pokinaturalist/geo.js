@@ -5,7 +5,7 @@ var userMarker;
 var userIcon;
 var mapboxAccessToken;
 var watchId;
-var zoomLevel = 18;     // Lower number = more zoomed out
+var zoomLevel = 14;     // Lower number = more zoomed out
 var maxAge = 25000;
 var timeUntilTimeout = 20000;
 var trainerImg = "/static/pokinaturalist/img/trainer.png";
@@ -31,8 +31,17 @@ function showPosition(position) {
         zoomControl: false
     }).fitWorld();
 
-    // Play animation that zooms in on user's location
-    map.flyTo(latlng, zoomLevel);
+    // Play animation that zooms in on user's location only once
+    if (localStorage.getItem("run_once") === null) {
+        map.flyTo(latlng, zoomLevel);
+
+        // After zoom animation is finished, begin continuosly tracking user device location
+        map.on('zoomend', trackUserLocation);
+        localStorage.setItem("run_once", true);
+    } else {
+        map.setView(latlng, zoomLevel);
+        trackUserLocation();
+    }
 
     // This loads the tile's to the map from MapBox.
     // Be aware that the tiles will be queried from MapBox several times when the user first loads the page
@@ -62,8 +71,7 @@ function showPosition(position) {
     map.boxZoom.disable();
     map.keyboard.disable();
 
-    // After zoom animation is finished, begin continuosly tracking user device location
-    map.on('zoomend', trackUserLocation);
+    // Display creatures on map
     get_creatures(position.coords.longitude, position.coords.latitude);
 }
 

@@ -9,7 +9,6 @@ function get_creatures(lng, lat) {
         success: display_creatures_on_map,
         error: failure,
     });
-
 }
 
 function display_creatures_on_map(result, status, xhr) {
@@ -27,6 +26,7 @@ function display_creatures_on_map(result, status, xhr) {
     for (i = 0; i < creatures.length; i++) {
         console.log(`Adding ${creatures[i]["latitude"]}, ${creatures[i]["longitude"]}`);
         var creature_marker = L.marker([creatures[i]["latitude"], creatures[i]["longitude"]]).addTo(map);
+        creature_marker.bindPopup(`<b>${creatures[i]["species_guess"].toUpperCase()}</b><br><b><a href="${creatures[i]["wiki"]}" target="_blank">Learn More</a></b>`);
     }
 
 }
