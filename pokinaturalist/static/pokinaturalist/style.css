@@ -107,6 +107,7 @@ body {
 .sidebarMenuInner li{
     list-style: none;
    /* color: #fff;*/
+   z-index: 1;
     text-transform: uppercase;
     font-weight: bold;
     padding: 20px;
