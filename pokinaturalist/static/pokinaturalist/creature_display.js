@@ -24,9 +24,10 @@ function display_creatures_on_map(result, status, xhr) {
 
     // Iterate through results and plot creatures on map
     for (i = 0; i < creatures.length; i++) {
-        console.log(`Adding ${creatures[i]["latitude"]}, ${creatures[i]["longitude"]}`);
         var creature_marker = L.marker([creatures[i]["latitude"], creatures[i]["longitude"]]).addTo(map);
-        creature_marker.bindPopup(`<b>${creatures[i]["species_guess"].toUpperCase()}</b><br><b><a href="${creatures[i]["wiki"]}" target="_blank">Learn More</a></b>`);
+        var content = `<img src="${creatures[i]["photo"]}"><br><b>${creatures[i]["species_guess"].toUpperCase()}</b>\
+                        <br><b><a href="${creatures[i]["wiki"]}" target="_blank">Learn More</a></b>`;
+        creature_marker.bindPopup(content);
     }
 
 }
