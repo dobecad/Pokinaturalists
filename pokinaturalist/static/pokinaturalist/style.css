@@ -258,7 +258,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
     background-image: url("../images/gear_setting.svg");
     background-repeat: no-repeat;
     background-position: center;
-    padding: 30px;
+    border: 10px rgb(77,77,77);
 }
 .button a:active{
   top:10px;
