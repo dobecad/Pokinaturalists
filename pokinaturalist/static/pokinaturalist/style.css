@@ -266,7 +266,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
     background-position: center;
     border: 10px rgb(77,77,77);
 }
-.button #set2{
+.button #set3{
     background-image: url("../images/backpack.svg");
     background-repeat: no-repeat;
     background-position: center;
