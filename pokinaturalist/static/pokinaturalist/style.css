@@ -240,7 +240,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   background-color:rgb(77, 77, 77);
   display:block;
   position:relative;
-  padding:20px 40px;
+  padding:20px 20px;
   
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   text-shadow: 0px 1px 0px #000;
@@ -258,6 +258,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
     background-image: url("../images/gear_setting.svg");
     background-repeat: no-repeat;
     background-position: center;
+    padding: 10px;
 }
 .button a:active{
   top:10px;
