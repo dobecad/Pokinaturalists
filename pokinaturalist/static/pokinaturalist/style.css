@@ -104,13 +104,16 @@ body {
     z-index: 0;
     position: absolute;
 }
-
+.sidebarMenuInner ul{
+    margin-top: 380px;
+    display: inline-block;
+}
 .sidebarMenuInner li{
     list-style: none;
    /* color: #fff;*/
     text-transform: uppercase;
     font-weight: bold;
-    float: left;
+
 
     cursor: pointer;
     /*order-bottom: 1px solid rgba(255, 255, 255, 0.10);*/
@@ -224,7 +227,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 {
   position:relative;
   display:inline-block;
-  margin-top: 380px;
+  
   
 }
 
