@@ -113,7 +113,6 @@ body {
     text-transform: uppercase;
     font-weight: bold;
     display: inline;
-    padding: 2px;
     cursor: pointer;
     /*order-bottom: 1px solid rgba(255, 255, 255, 0.10);*/
 }
@@ -218,7 +217,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 .button{
   position:relative;
   display:inline-block;
-  margin:2px;
+  margin:200px;
   margin-top: 2px;
   transform: scale(.7);
 }
