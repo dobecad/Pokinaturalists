@@ -96,8 +96,7 @@ body {
     position: absolute;
     margin:20px;
     margin-top: 380px;
-    white-space: nowrap;
-    overflow-x: hidden;
+    display: inline-block;
     padding:0;
     /*border-top: 1px solid rgba(255, 255, 255, 0.10);*/
 }
@@ -113,7 +112,7 @@ body {
    /* color: #fff;*/
     text-transform: uppercase;
     font-weight: bold;
-    display: inline;
+
 
     cursor: pointer;
     /*order-bottom: 1px solid rgba(255, 255, 255, 0.10);*/
@@ -247,9 +246,9 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   text-shadow: 0px 1px 0px #000;
   filter: dropshadow(color=#000, offx=0px, offy=1px);
   
-  -webkit-box-shadow:inset 0 1px 0 #c4e9ff, 0 10px 0 #003a91;
-  -moz-box-shadow:inset 0 1px 0 #c4e9ff, 0 10px 0 #003a91;
-  box-shadow:inset 0 1px 0 #c4e9ff, 0 10px 0 #003a91;
+  -webkit-box-shadow:inset 0 1px 0 #c4e9ff, 0 10px 0 #242424;
+  -moz-box-shadow:inset 0 1px 0 #c4e9ff, 0 10px 0 #242424;
+  box-shadow:inset 0 1px 0 #c4e9ff, 0 10px 0 #242424;
   
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -262,11 +261,11 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 }
 .button a:active{
   top:10px;
-  background-color:rgb(55, 127, 223);
+  background-color:rgb(77, 77, 77);
   
-  -webkit-box-shadow:inset 0 1px 0 #c4e9ff, inset 0 -3px 0 #003a91;
-  -moz-box-shadow:inset 0 1px 0 #c4e9ff, inset 0 -3pxpx 0 #003a91;
-  box-shadow:inset 0 1px 0 #c4e9ff, inset 0 -3px 0 #003a91;
+  -webkit-box-shadow:inset 0 1px 0 #c4e9ff, inset 0 -3px 0 #242424;
+  -moz-box-shadow:inset 0 1px 0 #c4e9ff, inset 0 -3pxpx 0 #242424;
+  box-shadow:inset 0 1px 0 #c4e9ff, inset 0 -3px 0 #242424;
 }
 
 .button:after{
