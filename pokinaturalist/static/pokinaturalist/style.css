@@ -104,7 +104,7 @@ body {
     z-index: 0;
     position: absolute;
 }
-.sidebarMenuInner ul{
+.sidebarMenuInner{
     margin-top: 380px;
     display: inline-block;
 }
