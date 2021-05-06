@@ -1,4 +1,5 @@
 const api_url = "https://pokinaturalist-inaturalist.herokuapp.com/observations"
+var existing_markers = [];
 
 function get_creatures(lng, lat) {
     // Fetch creature information from our iNaturalist API
@@ -9,6 +10,20 @@ function get_creatures(lng, lat) {
         success: display_creatures_on_map,
         error: failure,
     });
+}
+
+function markerAlreadyExists(marker) {
+    // Check if marker has already been added to the map.
+    if (!existing_markers.length) {
+        return false;
+    }
+
+    for (j = 0; j < existing_markers.length; j++) {
+        if (existing_markers[j].getLatLng().lat == marker.getLatLng().lat && existing_markers[j].getLatLng().lng == marker.getLatLng().lng) {
+            return true;
+        }
+    }
+    return false;
 }
 
 function display_creatures_on_map(result, status, xhr) {
@@ -24,10 +39,17 @@ function display_creatures_on_map(result, status, xhr) {
 
     // Iterate through results and plot creatures on map
     for (i = 0; i < creatures.length; i++) {
-        var creature_marker = L.marker([creatures[i]["latitude"], creatures[i]["longitude"]]).addTo(map);
+        var creature_marker = L.marker([creatures[i]["latitude"], creatures[i]["longitude"]]);
+
+        if (markerAlreadyExists(creature_marker)) {
+            continue;
+        }
+
+        creature_marker.addTo(map);
         var content = `<img src="${creatures[i]["photo"]}"><br><b>${creatures[i]["species_guess"].toUpperCase()}</b>\
                         <br><b><a href="${creatures[i]["wiki"]}" target="_blank">Learn More</a></b>`;
         creature_marker.bindPopup(content);
+        existing_markers.push(creature_marker);
     }
 
 }
