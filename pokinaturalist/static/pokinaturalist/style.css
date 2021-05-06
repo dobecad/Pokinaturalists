@@ -105,14 +105,14 @@ body {
     position: absolute;
 }
 .sidebarMenuInner ul{
-    display: inline;
+
 }
 .sidebarMenuInner li{
     list-style: none;
    /* color: #fff;*/
     text-transform: uppercase;
     font-weight: bold;
-    display: inline;
+
 
     cursor: pointer;
     /*order-bottom: 1px solid rgba(255, 255, 255, 0.10);*/
