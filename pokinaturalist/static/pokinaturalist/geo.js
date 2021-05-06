@@ -34,7 +34,6 @@ function showPosition(position) {
 
     // Play animation that zooms in on user's location only once
     if (localStorage.getItem("run_once") === null) {
-        console.log("Fltying to map");
         map.flyTo(latlng, maxZoomLevel);
 
         // After zoom animation is finished, begin continuosly tracking user device location
@@ -42,7 +41,7 @@ function showPosition(position) {
             trackUserLocation();
             map.setMinZoom(minZoomLevel);
         });
-        
+
         localStorage.setItem("run_once", true);
     } else {
         map.setView(latlng, maxZoomLevel);
