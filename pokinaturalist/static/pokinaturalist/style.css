@@ -217,7 +217,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 
 .button{
   position:relative;
-  display:inline-block;
+  display:inline;
   margin:20px;
   margin-top: 2px;
   transform: scale(.8);
@@ -225,8 +225,6 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 
 #firstbutton
 {
-  position:relative;
-  display:inline-block;
   margin:20px;
   margin-top: 380px;
   
