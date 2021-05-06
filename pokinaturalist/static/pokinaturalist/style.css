@@ -95,6 +95,8 @@ body {
 .sidebarMenuInner{
     position: absolute;
     margin:20px;
+    margin-top: 380px;
+    display: inline-block;
     padding:0;
     /*border-top: 1px solid rgba(255, 255, 255, 0.10);*/
 }
@@ -104,10 +106,7 @@ body {
     z-index: 0;
     position: absolute;
 }
-.sidebarMenuInner{
-    margin-top: 380px;
-    display: inline-block;
-}
+
 .sidebarMenuInner li{
     list-style: none;
    /* color: #fff;*/
@@ -220,7 +219,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   position:relative;
  
 
-  transform: scale(.7);
+  transform: scale(.3);
 }
 
 #firstbutton
