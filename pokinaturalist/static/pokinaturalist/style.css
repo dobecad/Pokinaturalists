@@ -104,15 +104,13 @@ body {
     z-index: 0;
     position: absolute;
 }
-.sidebarMenuInner ul{
 
-}
 .sidebarMenuInner li{
     list-style: none;
    /* color: #fff;*/
     text-transform: uppercase;
     font-weight: bold;
-
+    float: left;
 
     cursor: pointer;
     /*order-bottom: 1px solid rgba(255, 255, 255, 0.10);*/
