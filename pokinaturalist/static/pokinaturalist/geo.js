@@ -9,6 +9,7 @@ var maxZoomLevel = 18;     // Lower number = more zoomed out
 var minZoomLevel = 15;
 var maxAge = 25000;
 var timeUntilTimeout = 20000;
+var timeBetweenCreatureRefresh = 120000 // 2 minutes in milliseconds
 var trainerImg = "/static/pokinaturalist/img/trainer.png";
 
 function getLocation(token) {
@@ -73,7 +74,7 @@ function showPosition(position) {
     // Display creatures on map
     setInterval(function() {
         get_creatures(userMarker.getLatLng().lng, userMarker.getLatLng().lat);
-    }, 5000);
+    }, timeBetweenCreatureRefresh);
 
     // Disable user from changing zoom
     // map.touchZoom.disable();
