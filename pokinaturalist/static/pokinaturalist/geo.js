@@ -34,20 +34,25 @@ function showPosition(position) {
 
     // Play animation that zooms in on user's location only once
     if (localStorage.getItem("run_once") === null) {
+        console.log("Fltying to map");
         map.flyTo(latlng, maxZoomLevel);
 
         // After zoom animation is finished, begin continuosly tracking user device location
-        map.on('zoomend', trackUserLocation);
+        map.on('zoomend', function() {
+            trackUserLocation();
+            map.setMinZoom(minZoomLevel);
+        });
+        
         localStorage.setItem("run_once", true);
     } else {
         map.setView(latlng, maxZoomLevel);
+        map.setMinZoom(minZoomLevel);
         trackUserLocation();
     }
 
     // This loads the tile's to the map from MapBox.
     // Be aware that the tiles will be queried from MapBox several times when the user first loads the page
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-        minZoom: minZoomLevel,
         maxZoom: maxZoomLevel,
         id: 'mapbox/outdoors-v11',
         tileSize: 512,
@@ -66,9 +71,10 @@ function showPosition(position) {
     });
     userMarker = L.marker(latlng, {icon: userIcon}).addTo(map);
 
-    map.on("zoom", function() {
-        map.setView(userMarker.getLatLng(), map.getZoom());
-    });
+    // Display creatures on map
+    setInterval(function() {
+        get_creatures(userMarker.getLatLng().lng, userMarker.getLatLng().lat);
+    }, 5000);
 
     // Disable user from changing zoom
     // map.touchZoom.disable();
@@ -77,8 +83,6 @@ function showPosition(position) {
     // map.boxZoom.disable();
     // map.keyboard.disable();
 
-    // Display creatures on map
-    get_creatures(position.coords.longitude, position.coords.latitude);
 }
 
 function trackUserLocation() {
@@ -89,6 +93,10 @@ function trackUserLocation() {
         timeout: timeUntilTimeout
     };
     watchId = navigator.geolocation.watchPosition(success, error, options);
+
+    map.on("zoom", function() {
+        map.setView(userMarker.getLatLng());
+    });
 
 }
 
