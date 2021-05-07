@@ -371,7 +371,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
     width: 250px;
     height: 350px;
     z-index: 2;
-    margin-left: 5px;
+    margin-left: 15px;
     margin-top: 50px;
     background-image: url('../images/visor.svg');
     background-repeat: no-repeat;
@@ -389,7 +389,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
     font-size: 99%;
     text-align: center;
     animation: 
-      typing 1.5s steps(40, end),
+      typing .5s steps(40, end),
       blink-caret .75s step-end infinite;
   }
   
