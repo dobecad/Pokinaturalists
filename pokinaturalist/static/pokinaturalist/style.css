@@ -371,7 +371,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
     width: 250px;
     height: 350px;
     z-index: 2;
-    margin-left: 15px;
+    margin-left: 10px;
     margin-top: 50px;
     background-image: url('../images/visor.svg');
     background-repeat: no-repeat;
