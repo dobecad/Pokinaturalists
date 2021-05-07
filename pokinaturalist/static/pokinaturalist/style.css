@@ -386,7 +386,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
     margin: 0 auto; /* Gives that scrolling effect as the typing happens */
     letter-spacing: .15em; /* Adjust as needed */
     color: #fff;
-    font-size: 140%;
+    font-size: 130%;
     text-align: center;
     animation: 
       typing .5s steps(40, end),
@@ -402,5 +402,5 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   /* The typewriter cursor effect */
   @keyframes blink-caret {
     from, to { border-color: transparent }
-    50% { border-color: orange; }
+    50% { border-color: rgb(255, 255, 255); }
   }
