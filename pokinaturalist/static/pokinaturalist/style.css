@@ -50,7 +50,7 @@ body {
     width: 100%;
     max-width: 18.44%;
     box-shadow: none;
-    background-color: #2528bb;
+    background-color: rgb(37, 40, 187);
     position: fixed;
     height: 60px!important;
     overflow: hidden;
@@ -94,7 +94,7 @@ body {
 
 .sidebarMenuInner{
     position: absolute;
-    margin:95px;
+    margin:85px;
     margin-top: 400px;
     display: inline-block;
     padding:0;
