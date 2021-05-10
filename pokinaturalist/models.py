@@ -26,8 +26,9 @@ class Move(models.Model):
 class Creature(models.Model):
     owner_id = models.ForeignKey(User, on_delete=models.CASCADE)
     nickname = models.CharField(max_length=50)
-    # link to the base observation(url?) Can derive picture from that
-    observation_base = models.CharField(max_length=200)
+    #link to icon
+    observation_photo = models.CharField(max_length=200)
+    observation_wiki = models.CharField(max_length=200)
     strength = models.IntegerField()
     moveset = models.ManyToManyField(Move)
 
