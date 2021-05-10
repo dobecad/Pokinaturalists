@@ -1,0 +1,74 @@
+
+
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<style>
+/*span wrapper for creature spawn*/
+   .creature {
+    color: red;
+    position: absolute;
+    opacity: 0;
+    animation: fade 30s linear;
+    animation-iteration-count:infinite;
+}
+/*animation frames for creature spawn. Will make icon appear and disappear*/
+@keyframes fade {
+    0% {
+        opacity: 0
+    }
+    10% {
+        opacity: 1
+    }
+    
+    50% {
+        opacity: 1
+    }
+    
+    60% {
+        opacity: 0
+    }
+    
+    100% {
+        opacity: 0
+    }
+}
+ 
+</style>
+<script>
+
+//Function to "spawn" and "despawn" creatures
+jQuery(document).ready(function($) {
+    //initializes creature symbol
+    var creature = "<span class='creature'>◓</span>";
+    //max # of creatures on screen. To be adjusted if more/less creatures desired
+    //current set 50 spawns WAY too often. It is simply this high for
+    //debugging purposes. To make sure it works.
+    var numCreature = 50;
+    
+    //starts creature spawn animation with random delay
+    for (var x = 1; x <= numCreature; x++) {
+        var randomDelay = Math.random()*100;
+        $(creature)
+        	.css("animation-delay", randomDelay + "s")
+            .appendTo("body");
+    }
+    // gets window dimentions
+    var ww = $(window).width();
+    var wh = $(window).height();
+    
+    //gets random position for creature symbol
+    $(".creature").each(function(i) {
+        var posx = Math.round(Math.random() * ww) - 20;
+        var posy = Math.round(Math.random() * wh) - 20;
+        $(this)
+        	.css("top", posy + "px")
+            .css("left", posx + "px");
+    });
+});    
+    
+</script>
+</body>
+</html>
