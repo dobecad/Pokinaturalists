@@ -13,6 +13,10 @@ It achieves this through geolocation API calls.
 {% block content %}
 
     <div id="map" class="container-fluid">
+        <script>
+            {% comment %} Load map only when we are on the geo page. {% endcomment %}
+            getLocation('{{ mapboxAppToken }}');
+        </script>
     </div>
 
 {% endblock %}
