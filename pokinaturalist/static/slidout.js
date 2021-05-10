@@ -5,6 +5,7 @@ function openNav() {
     var trainer = document.getElementsByClassName("leaflet-marker-icon leaflet-zoom-animated leaflet-interactive")[0];
     document.getElementById("myNav").style.width = "100%";
     fade(trainer);
+
   }
   
   /* Close when someone clicks on the "x" symbol inside the overlay */
@@ -12,6 +13,7 @@ function openNav() {
     var trainer = document.getElementsByClassName("leaflet-marker-icon leaflet-zoom-animated leaflet-interactive")[0];
     document.getElementById("myNav").style.width = "0%";
     unfade(trainer);
+
   }
 
 
@@ -39,4 +41,18 @@ function unfade(element) {
         element.style.filter = 'alpha(opacity=' + op * 100 + ")";
         op += op * 0.1;
     }, 10);
+}
+
+
+function reset(text)
+{
+    var element = document.getElementById("display");
+    var displayText = document.getElementById("display-text");
+    // -> removing the class
+    element.classList.remove("typewriter");
+    void element.offsetWidth;
+  
+    // -> and re-adding the class
+    element.classList.add("typewriter");
+    displayText.innerText = text.name;
 }
