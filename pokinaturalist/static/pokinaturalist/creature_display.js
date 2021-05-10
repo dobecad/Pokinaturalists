@@ -47,7 +47,8 @@ function display_creatures_on_map(result, status, xhr) {
 
         creature_marker.addTo(map);
         var content = `<img src="${creatures[i]["photo"]}"><br><b>${creatures[i]["species_guess"].toUpperCase()}</b>\
-                        <br><b><a href="${creatures[i]["wiki"]}" target="_blank">Learn More</a></b>`;
+                        <br><b><a href="${creatures[i]["wiki"]}" target="_blank">Learn More</a></b><br>\
+                        <button type="button" class="btn btn-primary">Battle</button>`;
         creature_marker.bindPopup(content);
         existing_markers.push(creature_marker);
     }

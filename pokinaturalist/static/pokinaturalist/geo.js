@@ -71,7 +71,9 @@ function showPosition(position) {
     });
     userMarker = L.marker(latlng, {icon: userIcon}).addTo(map);
 
-    // Display creatures on map
+    get_creatures(userMarker.getLatLng().lng, userMarker.getLatLng().lat);
+
+    // Fetch new creatures after timeBetweenCreatureRefresh time passes
     setInterval(function() {
         get_creatures(userMarker.getLatLng().lng, userMarker.getLatLng().lat);
     }, timeBetweenCreatureRefresh);
