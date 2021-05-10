@@ -5,9 +5,11 @@ var userMarker;
 var userIcon;
 var mapboxAccessToken;
 var watchId;
-var zoomLevel = 18;
+var maxZoomLevel = 18;     // Lower number = more zoomed out
+var minZoomLevel = 15;
 var maxAge = 25000;
 var timeUntilTimeout = 20000;
+var timeBetweenCreatureRefresh = 120000 // 2 minutes in milliseconds
 var trainerImg = "/static/pokinaturalist/img/trainer.png";
 
 function getLocation(token) {
@@ -31,13 +33,27 @@ function showPosition(position) {
         zoomControl: false
     }).fitWorld();
 
-    // Play animation that zooms in on user's location
-    map.flyTo(latlng, zoomLevel);
+    // Play animation that zooms in on user's location only once
+    if (localStorage.getItem("run_once") === null) {
+        map.flyTo(latlng, maxZoomLevel);
+
+        // After zoom animation is finished, begin continuosly tracking user device location
+        map.on('zoomend', function() {
+            trackUserLocation();
+            map.setMinZoom(minZoomLevel);
+        });
+
+        localStorage.setItem("run_once", true);
+    } else {
+        map.setView(latlng, maxZoomLevel);
+        map.setMinZoom(minZoomLevel);
+        trackUserLocation();
+    }
 
     // This loads the tile's to the map from MapBox.
     // Be aware that the tiles will be queried from MapBox several times when the user first loads the page
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-        maxZoom: zoomLevel,
+        maxZoom: maxZoomLevel,
         id: 'mapbox/outdoors-v11',
         tileSize: 512,
         zoomOffset: -1,
@@ -55,15 +71,18 @@ function showPosition(position) {
     });
     userMarker = L.marker(latlng, {icon: userIcon}).addTo(map);
 
-    // Disable user from changing zoom
-    map.touchZoom.disable();
-    map.doubleClickZoom.disable();
-    map.scrollWheelZoom.disable();
-    map.boxZoom.disable();
-    map.keyboard.disable();
+    // Display creatures on map
+    setInterval(function() {
+        get_creatures(userMarker.getLatLng().lng, userMarker.getLatLng().lat);
+    }, timeBetweenCreatureRefresh);
 
-    // After zoom animation is finished, begin continuosly tracking user device location
-    map.on('zoomend', trackUserLocation);
+    // Disable user from changing zoom
+    // map.touchZoom.disable();
+    // map.doubleClickZoom.disable();
+    // map.scrollWheelZoom.disable();
+    // map.boxZoom.disable();
+    // map.keyboard.disable();
+
 }
 
 function trackUserLocation() {
@@ -74,6 +93,10 @@ function trackUserLocation() {
         timeout: timeUntilTimeout
     };
     watchId = navigator.geolocation.watchPosition(success, error, options);
+
+    map.on("zoom", function() {
+        map.setView(userMarker.getLatLng());
+    });
 
 }
 
@@ -87,7 +110,7 @@ function success(position) {
     var newCoords = L.latLng(position.coords.latitude, position.coords.longitude);
     console.log("New coords: ", newCoords.toString());
     userMarker.setLatLng(newCoords);
-    map.setView(newCoords, zoomLevel);
+    map.setView(newCoords);
 }
 
 function error(error) {
