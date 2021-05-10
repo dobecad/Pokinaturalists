@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'Pokinaturalists.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-
+# If statement for testing since Django wants to create a Database, and Heroku won't let it
 if 'test' in sys.argv:
     DATABASES = {
         'default': {
