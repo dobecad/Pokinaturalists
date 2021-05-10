@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 import os
 import sys
+import django_heroku
 from pathlib import Path
 from dotenv import load_dotenv
 load_dotenv()
@@ -89,15 +90,8 @@ WSGI_APPLICATION = 'Pokinaturalists.wsgi.application'
 if 'test' in sys.argv:
     DATABASES = {
         'default': {
-            'ENGINE': str(os.getenv('DB_ENGINE')),
-            'NAME': str(os.getenv('TEST_DB_NAME')),
-            'USER': str(os.getenv('TEST_DB_USER')),
-            'PASSWORD': str(os.getenv('TEST_DB_PASS')),
-            'HOST': str(os.getenv('TEST_DB_HOST')),
-            'PORT': str(os.getenv('DB_PORT')),
-            'TEST': {
-                'NAME': str(os.getenv('TEST_DB_NAME'))
-            }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
 else:
@@ -179,7 +173,7 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-#set this to 4 for local, set it to 2 for heroku
+#set this to 4 for local, set it to 3 for heroku
 SITE_ID = 3
 LOGIN_REDIRECT_URL = '/'
 
@@ -194,3 +188,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 SITE_ID = 3
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+django_heroku.settings(locals())
