@@ -58,15 +58,15 @@ class DatabaseTests(TestCase):
 
     #Naive move creation
     def test_move_creation(self):
-        test2 = Move(move_name="Thundershock", move_strength=50)
+        test2 = Move(move_name="Thundershock", move_type=3, move_strength=50)
         test2.save()
         self.assertEqual(Move.objects.get(), test2)
 
     # add a duplicate move test just to be sure of unique status of username
     def test_duplicate_move(self):
         try:
-            test2 = Move(move_name="Thundershock", move_strength=30)
-            test3 = Move(move_name="Thundershock", move_strength=50)
+            test2 = Move(move_name="Thundershock", move_type=3, move_strength=30)
+            test3 = Move(move_name="Thundershock", move_type=3, move_strength=50)
             test2.save()
             test3.save()
         except IntegrityError:
@@ -76,13 +76,15 @@ class DatabaseTests(TestCase):
     #Naive Creature creation with a move
     def test_creature_creation(self):
         test2 = User.objects.get(username="Ash Ketchum")
-        test3 = Creature(owner_id=test2, nickname="Pikachu",
-                         observation_photo="Shocking", observation_wiki="Pokemon num 25", strength=1337)
-        test4 = Move(move_name="Thunderbolt", move_strength=42)
+        test3 = Move(move_name="Thunderbolt", move_type=3, move_strength=42)
+        test4 = Creature(owner_id=test2, nickname="Pikachu",
+                         observation_photo="Shocking", observation_wiki="Pokemon num 25",
+                         level=100, experience=25252525,
+                         type=3, strength=50, defense=45,
+                         health=35, speed=90, move=test3)
         test3.save()
         test4.save()
-        test3.moveset.add(test4)
-        self.assertEqual(Creature.objects.get(), test3)
+        self.assertEqual(Creature.objects.get(), test4)
 
     # Naive Item creation
     def test_item_creation(self):
@@ -98,26 +100,18 @@ class DatabaseTests(TestCase):
         # to the setup of THE POKEMON MASTER(Ash)
         test2 = User.objects.get(username="Ash Ketchum")
         test3 = Creature(owner_id=test2, nickname="Pikachu",
-                         observation_photo="Defibrillator", observation_wiki="Pokemon num 25", strength=1337)
+                         observation_photo="Defibrillator", observation_wiki="Pokemon num 25",
+                         level=100, experience=25252525,
+                         type=3, strength=50, defense=45,
+                         health=35, speed=90)
         test4 = Creature(owner_id=test2, nickname="Charizard",
-                         observation_photo="Blaze it", observation_wiki="Pokemon num 6", strength=420)
+                         observation_photo="Blaze it", observation_wiki="Pokemon num 6",
+                         level=95, experience=10010010,
+                         type=2, strength=95, defense=85,
+                         health=80, speed=100)
         test3.save()
         test4.save()
         self.assertEqual(Creature.objects.filter(owner_id=test2).count(), 2)
-
-    #Tests multiple moves to a creature
-    def test_multiple_moves(self):
-        test2 = User.objects.get(username="Ash Ketchum")
-        test3 = Creature(owner_id=test2, nickname="Pikachu",
-                         observation_photo="Defibrillator", observation_wiki="Pokemon num 25", strength=1337)
-        test4 = Move(move_name="Thunderbolt", move_strength=42)
-        test5 = Move(move_name="Volt Tackle", move_strength=69)
-        test3.save()
-        test4.save()
-        test5.save()
-        test3.moveset.add(test4)
-        test3.moveset.add(test5)
-        self.assertEqual(Creature.objects.get(nickname="Pikachu").moveset.count(), 2)
 
     #Tests multiple items to a user
     def test_multiple_items(self):
